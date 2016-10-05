@@ -75,27 +75,22 @@ use Roots\Sage\Wrapper;
   ga('send', 'pageview');
  
    <!-- End Google Analytics -->
+  </script>
+  
+   <!-- Optimizely Snippet -->
+   <script src="https://cdn.optimizely.com/js/5614381003.js"></script>
 
-
-
-   <!-- Hotjar Tracking Code for https://getluma.com -->
-	
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:169072,hjsv:5};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-	
-
+<script>
 
 jQuery(document).ready(jQuery("#menu-item-56 > a").click(function(){var e=(new Date).getTime()/1e3,a=parseInt(e/3600)%24;a-=4;var n=parseInt(e/60)%60,t=e%60;t=Math.round(100*t)/100;var r=(10>a?"0"+a:a)+"-"+(10>n?"0"+n:n)+"-"+(10>t?"0"+t:t);ga("send","event","purchase button top","click",r,399)}))
 
 jQuery(document).ready(jQuery("body > header.header.header--left.header--light.header--mobile-center > div > ul > li:nth-child(1) > a").click(function(){var e=(new Date).getTime()/1e3,a=parseInt(e/3600)%24;a-=4;var n=parseInt(e/60)%60,t=e%60;t=Math.round(100*t)/100;var r=(10>a?"0"+a:a)+"-"+(10>n?"0"+n:n)+"-"+(10>t?"0"+t:t);ga("send","event","purchase button center","click",r,399)}))
 
 jQuery(document).ready(jQuery("body > section.order-luma > div > a").click(function(){var e=(new Date).getTime()/1e3,a=parseInt(e/3600)%24;a-=4;var n=parseInt(e/60)%60,t=e%60;t=Math.round(100*t)/100;var r=(10>a?"0"+a:a)+"-"+(10>n?"0"+n:n)+"-"+(10>t?"0"+t:t);ga("send","event","purchase button  bottom","click",r,399)}))
+
+
+jQuery(document).ready(jQuery("li a.js-youtube-popup").click(function(){var e=(new Date).getTime()/1e3,a=parseInt(e/3600)%24;a-=4;var n=parseInt(e/60)%60,t=e%60;t=Math.round(100*t)/100;var r=(10>a?"0"+a:a)+"-"+(10>n?"0"+n:n)+"-"+(10>t?"0"+t:t);ga("send","event","watch video","click",r,399)}))
+
 
 
 //jQuery(".job_listings").addClass("container");

@@ -1,0 +1,43 @@
+footer.bottom-bar
+  .bottom-bar__container
+    .bottom-bar__section.bottom-bar__section--primary.bottom-primary
+      - if (has_nav_menu('footer_product')):
+        nav.bottom-primary__nav.bottom-primary__nav--product
+          h4.bottom-primary__title Product
+          - wp_nav_menu(['theme_location' => 'footer_product', 'menu_class' => 'bottom-primary__list'])
+      - endif;
+      - if (has_nav_menu('footer_company')):
+        nav.bottom-primary__nav.bottom-primary__nav--company
+          h4.bottom-primary__title Company
+          - wp_nav_menu(['theme_location' => 'footer_company', 'menu_class' => 'bottom-primary__list'])
+      - endif;
+      - if (has_nav_menu('footer_support')):
+        nav.bottom-primary__nav.bottom-primary__nav--support
+          h4.bottom-primary__title Support
+          - wp_nav_menu(['theme_location' => 'footer_support', 'menu_class' => 'bottom-primary__list'])
+      - endif;
+      .bottom-primary__email
+        - if ( get_field('mailchimp_form_action', 'option') && get_field('mailchimp_honeypot_name', 'option') ):
+          h4.bottom-primary__title GET THE LATEST NEWS
+          - get_template_part('templates/footer', 'mailchimp');
+      - endif;
+    .bottom-bar__section.bottom-bar__section--secondary.bottom-secondary
+      a.bottom-secondary__logo(href="<?= esc_url(home_url('/')); ?>")
+        include ../images/svg/logo-luma.svg
+      span.bottom-secondary__copyright © 2016 Luma Home Inc. All rights reserved.
+      ul.bottom-secondary__social-media
+        - if ( get_field('facebook_url', 'option') ):
+          li: a(href="<?=the_field('facebook_url', 'option'); ?>" target="_blank"): include ../images/svg/logo-facebook.svg
+        - endif;
+        - if ( get_field('twitter_url', 'option') ):
+          li: a(href="<?=the_field('twitter_url', 'option'); ?>" target="_blank"): include ../images/svg/logo-twitter.svg
+        - endif;
+        - if ( get_field('instagram_url', 'option') ):
+          li: a(href="<?=the_field('instagram_url', 'option'); ?>" target="_blank"): include ../images/svg/logo-instagram.svg
+        - endif;
+        - if ( get_field('pinterest_url', 'option') ):
+          li: a(href="<?=the_field('pinterest_url', 'option'); ?>" target="_blank"): include ../images/svg/logo-pinterest.svg
+        - endif;
+        - if ( get_field('youtube_url', 'option') ):
+          li: a(href="<?=the_field('youtube_url', 'option'); ?>" target="_blank"): include ../images/svg/logo-youtube.svg
+        - endif;

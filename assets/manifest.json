@@ -1,0 +1,53 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/main.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "bower": ["magnific-popup","normalize-css","slick-carousel"],
+      "main": true
+    },
+    "customizer.js": {
+      "files": [
+        "scripts/customizer.js"
+      ]
+    },
+    "jquery.js": {
+      "bower": ["jquery"]
+    },
+    "matchHeight.js": {
+      "bower": ["matchHeight"]
+    },
+    "scrollmagic.js": {
+      "bower": ["scrollmagic"]
+    },
+    "gsap.js": {
+      "bower": ["gsap"]
+    },
+    "stickup.js": {
+      "bower": ["stickUp2"]
+    },
+    "magnific-popup.js": {
+      "bower": ["magnific-popup"]
+    },
+    "slick-carousel.js": {
+      "bower": ["slick-carousel"]
+    }
+  },
+  "config": {
+    "devUrl": "localhost:8888"
+  },
+  "paths": {
+    "source": "assets/",
+    "dist": {
+      "assets": "dist/",
+      "templates": "templates/"
+    }
+  }
+}

@@ -1,0 +1,229 @@
+.core-features {
+  padding: ($column-gutter*2);
+  &__container {
+    lost-center: $row-width;
+  }
+  &__title {
+    margin: 0 0 ($column-gutter*2);
+    text-align: center;
+    font-weight: 400;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .core-features {
+    padding-top: ($column-gutter*4);
+    padding-bottom: ($column-gutter*4);
+    &__title {
+      font-size: 2.75rem;
+      margin-bottom: ($column-gutter*4);
+    }
+  }
+}
+
+.feature-list {
+  &__item {
+    lost-utility: clearfix;
+    margin-bottom: ($column-gutter*2);
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &__image,
+  &__copy {
+    display: inline-block;
+    float: left;
+  }
+  &__image {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  &__copy {
+    width: calc(100% - 40px - 1rem);
+    margin-left: 1rem;
+    h3 {
+      margin: 0 0 $column-gutter;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .feature-list {
+    &__item {
+      lost-column: 1/2 2;
+    }
+    &__copy {
+      h3,
+      p {
+        font-size: 1.375rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .feature-list {
+    &__item {
+      lost-column: 1/3 3;
+    }
+  }
+}
+
+.diagrams {
+  background-color: $c-white--off;
+  padding: ($column-gutter*2);
+  &__container {
+    lost-center: $row-width;
+  }
+  &__diagram {
+    margin-bottom: ($column-gutter*2);
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .diagrams {
+    padding-top: ($column-gutter*4);
+    padding-bottom: ($column-gutter*4);
+    &__diagram {
+      padding: ($column-gutter*2) 0;
+      border-top: 1px solid $c-gray--light;
+      margin-bottom: 0;
+      &:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+      }
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .diagrams {
+    &__diagram {
+      &:first-of-type {
+        padding-bottom: ($column-gutter*4);
+      }
+      &:last-of-type {
+        padding-top: ($column-gutter*4);
+      }
+    }
+  }
+}
+
+.diagram {
+  text-align: center;
+  &__title {
+    margin: 0 0 $column-gutter;
+    font-weight: 400;
+    line-height: 1;
+  }
+  &__image {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .diagram {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    &__title,
+    &__image {
+      lost-column: 1/2 2;
+    }
+    &__title {
+      font-size: 2.75rem;
+      margin-bottom: 0;
+    }
+    &__image {
+    }
+  }
+}
+
+.tech-specs {
+  padding: ($column-gutter*2);
+  &__container {
+    lost-center: $row-width;
+  }
+  &__title {
+    margin: 0 0 ($column-gutter*2);
+    font-weight: 400;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .tech-specs {
+    padding-top: ($column-gutter*4);
+    padding-bottom: ($column-gutter*4);
+    &__title {
+      font-size: 2.75rem;
+      margin-bottom: ($column-gutter*4);
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .tech-specs {
+    &__list {
+      lost-column: 1/2 2;
+    }
+  }
+}
+
+.spec-list {
+  &__list {
+    margin: 0 0 $column-gutter;
+    padding: 0 0 0 $column-gutter;
+    list-style: none;
+    line-height: 1;
+    li {
+      margin-bottom: ($column-gutter/2);
+    }
+  }
+  &__title {
+    text-transform: uppercase;
+    margin: 0 0 ($column-gutter/2);
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .spec-list {
+    &__title,
+    &__list {
+      font-size: 1.375rem;
+    }
+    &__title {
+      margin-bottom: $column-gutter;
+    }
+    &__list {
+      margin-bottom: ($column-gutter*2);
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .spec-list {
+    &__list {
+      margin-bottom: ($column-gutter*3);
+    }
+  }
+}

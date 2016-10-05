@@ -1,0 +1,9 @@
+header.header.header--center-top-center(class="<?=the_field('mobile_background_position') ?>" style="background-image:url(<?=the_post_thumbnail_url(); ?>);")
+  .header__container
+    h1.header__title Our story.
+
+section.article
+  .article__container
+    - the_content();
+
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

@@ -1,0 +1,57 @@
+header.header.header--center-top-center(class="<?=the_field('mobile_background_position') ?>" style="background-image:url(<?=the_post_thumbnail_url(); ?>);")
+  .header__container
+    .header__copy
+      - if ( get_field('header_headline') ):
+        h1.header__title <?= the_field('header_headline'); ?>
+      - endif;
+      - if ( get_field('headerder_tagline') ):
+        h2.header__tagline <?= the_field('header_tagline'); ?>
+      - endif;
+
+section.article
+  .article__container
+    - the_content();
+
+
+- if ( have_rows('team') ):
+  section.founders
+    .founders__container
+      - while( have_rows('team') ): the_row();
+        - $personName = get_sub_field('person_name');
+        - $personRole = get_sub_field('person_role');
+        - $personPhoto = get_sub_field('person_photo');
+        .founders__founder.founder
+          .founder__image(style="background-image: url('<?= $personPhoto; ?>');")
+          .founder__copy
+            h3
+              strong <?= $personName; ?>
+              span <?= $personRole; ?>
+      - endwhile;
+- endif;
+
+
+section.investors
+  h3.investors__title Investors
+  - if ( have_rows('investors_primary') ):
+    ul.investors__list.investors__list--top
+      - while( have_rows('investors_primary') ): the_row();
+        - $investorLogoPrimary = get_sub_field('investor_logo');
+        - $investorURLPrimary = get_sub_field('investor_url');
+        li
+          - if ($investorURLPrimary) { echo "<a href='"; echo $investorURLPrimary; echo "' target='_blank'>"; }
+          img(src="<?= $investorLogoPrimary; ?>")
+          - if ($investorURLPrimary) { echo "</a>"; }
+      - endwhile;
+  - endif;
+  - if ( have_rows('investors_secondary') ):
+    ul.investors__list.investors__list--below
+      - while( have_rows('investors_secondary') ): the_row();
+        - $investorLogoSecondary = get_sub_field('investor_logo');
+        - $investorURLSecondary = get_sub_field('investor_url');
+        li
+          - if ($investorURLSecondary) { echo "<a href='"; echo $investorURLSecondary; echo "' target='_blank'>"; }
+          img(src="<?= $investorLogoSecondary; ?>")
+          - if ($investorURLSecondary) { echo "</a>"; }
+      - endwhile;
+  - endif;
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

@@ -1,0 +1,96 @@
+header.header.header--left.header--light(class="<?=the_field('mobile_background_position') ?>" style="background-image:url(<?=the_post_thumbnail_url(); ?>);")
+  .header__container
+    - if ( get_field('header_headline') ):
+      .header__copy
+        h2.header__title <?= the_field('header_headline'); ?>
+    - endif;
+    ul.header__ctas
+      - if ( get_field('purchase_link') ):
+        li: a.btn.btn--filled(href="<?=the_field('purchase_link'); ?>" target="_blank") BUY NOW
+      - endif;
+      - if ( get_field('video_link') ):
+        li: a.btn.btn--dark.js-youtube-popup(href="<?=the_field('video_link'); ?>" target="_blank") WATCH VIDEO
+      - endif;
+
+section.product-overlap.product-overlap--single
+  img.product-overlap__image(src="<?php bloginfo('template_url'); ?>/dist/images/product-luma.png")
+  .product-overlap__logos
+    - if ( have_rows('header_logos') ):
+      - $rows = get_field('header_logos');
+      ul.media-logos
+        - $logos1 = array_slice($rows, 0, 3)
+        - foreach($logos1 as $item) {
+          li.media-logos__logo: img(src="<?php echo $item['logo_image_file'] ?>")
+        - }
+      ul.media-logos
+        - $logos2 = array_slice($rows, 3, 3)
+        - foreach($logos2 as $item) {
+          li.media-logos__logo: img(src="<?php echo $item['logo_image_file'] ?>")
+        - }
+  - endif;
+section.meet-luma
+  .meet-luma__container
+    .headline
+      - if ( get_field('section1_headline') ):
+        h2.headline__title <?= the_field('section1_headline'); ?>
+      - endif;
+      - if ( get_field('section1_tagline') ):
+        p.headline__description <?= the_field('section1_tagline'); ?>
+      - endif;
+
+    - if ( have_rows('feature_cards') ):
+      .meet-luma__features
+        - while( have_rows('feature_cards') ): the_row();
+          - $imageURL = get_sub_field('image');
+          - $title = get_sub_field('title');
+          - $description = get_sub_field('description');
+          - $targetURL = get_sub_field('target');
+          - $targetAnchor = get_sub_field('target_anchor');
+          - if ($targetAnchor) { $targetURL .= '#anchor--'.$targetAnchor; };
+          .luma-feature(data-match-height="luma-features")
+            .luma-feature__image(style="background-image: url(<?= $imageURL ?>);")
+            .luma-feature__copy
+              - if ($title):
+                h6.luma-feature__title <?= $title ?>
+              - endif;
+              - if ($description):
+                p.luma-feature__description <?= $description ?>
+              - endif;
+              - if ($targetURL):
+                a.luma-feature__link.btn.btn--arrow(href="<?= $targetURL ?>") LEARN MORE
+              - endif;
+        - endwhile;
+    - endif;
+
+//- USE `feature-screenshots` block
+section.feature-screenshots.feature-screenshots--scaled-sides
+  .feature-screenshots__container
+    .headline.headline--white
+      - if ( get_field('section2_headline') ):
+        h2.headline__title <?= the_field('section2_headline'); ?>
+      - endif;
+      - if ( get_field('section2_tagline') ):
+        p.headline__description <?= the_field('section2_tagline'); ?>
+      - endif;
+      - $learnMoreLink = get_field('learn_more_link');
+      - $learnMoreAnchor = get_field('learn_more_anchor');
+      - if ($learnMoreAnchor) { $learnMoreLink .= '#anchor--'.$learnMoreAnchor; };
+      a.headline__link.btn.btn--arrow.btn--arrow-white(href="<?= $learnMoreLink; ?>") LEARN MORE
+
+    - if ( have_rows('screenshots') ):
+      .feature-screenshots__features
+        - while( have_rows('screenshots') ): the_row();
+          - $title = get_sub_field('title');
+          - $description = get_sub_field('description');
+          - $iconURL = get_sub_field('icon');
+          - $screenshotURL = get_sub_field('screenshot');
+          .screenshot-block
+            .screenshot-block__image
+              .screenshot-block__screenshot(style="background-image: url(<?= $screenshotURL ?>);")
+            img.screenshot-block__icon(src="<?= $iconURL ?>")
+            h3.screenshot-block__title <?= $title ?>
+            p.screenshot-block__description <?= $description ?>
+        - endwhile;
+    - endif;
+
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

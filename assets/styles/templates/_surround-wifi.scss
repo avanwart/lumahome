@@ -1,0 +1,37 @@
+.your-home {
+  padding: ($column-gutter) ($column-gutter*2) ($column-gutter*2);
+  &__container {
+    lost-center: $row-width;
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .your-home {
+    padding-top: ($column-gutter*10);
+  }
+}
+
+.home-models {
+  &__model {}
+}
+
+@media screen and (min-width: $mobile-width) {
+  .home-models {
+    &__model {
+      lost-column: 1/2 2;
+      &--02 {
+        padding-top: 4.3%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .home-models {
+    &__model {
+      &--02 {
+        padding-top: 21px;
+      }
+    }
+  }
+}

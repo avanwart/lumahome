@@ -1,0 +1,6 @@
+time.updated(datetime="<?= get_post_time('c', true); ?>")
+  - get_the_date();
+p.byline.author.vcard
+  - __('By', 'sage');
+  a.fn(href!="<?= get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author")
+    - get_the_author();

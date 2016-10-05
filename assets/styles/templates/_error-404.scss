@@ -1,0 +1,27 @@
+.error-404 {
+  padding: $column-gutter ($column-gutter*2) ($column-gutter*2);
+  &__container {
+    lost-center: $row-width;
+  }
+  &__title,
+  &__description {
+    font-weight: 400;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .error-404 {
+    padding-top: ($column-gutter*2);
+    padding-bottom: ($column-gutter*4);
+    &__description {
+      font-size: 1.375rem;
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .error-404 {
+    padding-top: ($column-gutter*4);
+    padding-bottom: ($column-gutter*6);
+  }
+}

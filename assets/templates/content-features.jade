@@ -1,0 +1,78 @@
+header.header.header--center-center.header--shadow-bg.header--light(class="<?=the_field('mobile_background_position') ?>" style="background-image:url(<?=the_post_thumbnail_url(); ?>);")
+  .header__container
+    - if ( get_field('header_headline') ):
+      h1.header__title <?= the_field('header_headline'); ?>
+    - endif;
+    - if ( get_field('header_description') ):
+      p.header__description <?= the_field('header_description'); ?>
+    - endif;
+
+nav.nav-subsection.js-sticky-nav
+  .nav-subsection__container
+    ul.nav-subsection__list
+      li: a(href="#anchor--speed") Speed
+      li: a(href="#anchor--security") Security
+      li: a(href="#anchor--control") Control
+
+section.speed(style="background-image:url(<?= the_field('speed_background'); ?>);")
+  #anchor--speed
+  .speed__container
+    .headline.headline--white
+      - if ( get_field('speed_headline') ):
+        h1.headline__title <?= the_field('speed_headline'); ?>
+      - endif;
+      - if ( get_field('speed_description') ):
+        p.headline__description <?= the_field('speed_description'); ?>
+      - endif;
+
+section.security
+  #anchor--security
+  .security__container
+    .headline
+      - if ( get_field('security_headline') ):
+        h2.headline__title <?= the_field('security_headline'); ?>
+      - endif;
+      - if ( get_field('security_description') ):
+        p.headline__description <?= the_field('security_description'); ?>
+      - endif;
+      - if ( have_rows('security_blocks') ):
+        .security__columns
+          - while( have_rows('security_blocks') ): the_row();
+            - $blockImage = get_sub_field('block_image');
+            - $blockTitle = get_sub_field('block_title');
+            - $blockDescription = get_sub_field('block_description');
+            .security__column
+              img(src="<?= $blockImage; ?>")
+              h4 <?= $blockTitle; ?>
+              p <?= $blockDescription; ?>
+          - endwhile;
+      - endif;
+
+- if ( have_rows('control_slides') ):
+  section.control.is-not-loaded
+    #anchor--control
+    .control__backgrounds
+      - if ( get_field('control_background_01') ):
+        .control__background.control__background--01(style="background-image: url('<?= the_field('control_background_01'); ?>');")
+      - endif;
+      - if ( get_field('control_background_02') ):
+        .control__background.control__background--02(style="background-image: url('<?= the_field('control_background_02'); ?>');")
+      - endif;
+    .control__container
+      .control__copy.control-slider.control-slider--text
+        - while( have_rows('control_slides') ): the_row();
+          - $slideTitle = get_sub_field('slide_title');
+          - $slideDescription = get_sub_field('slide_description');
+          .control-slider__copy
+            h2 <?= $slideTitle; ?>
+            p <?= $slideDescription; ?>
+        - endwhile;
+      .control__screenshots.control-slider.control-slider--screenshot
+        - while( have_rows('control_slides') ): the_row();
+          - $slideScreenshot = get_sub_field('slide_screenshot');
+          .control-slider__image
+            img(src="<?= $slideScreenshot; ?>")
+        - endwhile;
+- endif;
+
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

@@ -1,0 +1,29 @@
+// Glyphicons font path
+$icon-font-path:        "../fonts/";
+
+// Colors
+$c-gray--darker:          #414141;
+$c-gray--dark:            #5e5e5e;
+$c-gray:                  #7b7b7b;
+$c-gray--light:           #ccc;
+$c-gray--lighter:         #ddd;
+$c-white--off:            #eee;
+
+$c-brand-primary:         #F48120;
+$c-body-font:             $c-gray--dark;
+$c-nav-link:              $c-gray;
+
+// Fonts
+$body-font-family:      "Open Sans", "Helvetica Neue", sans-serif;
+
+$column-gutter:         20px;
+$border-radius--btn:    4px;
+$box-shadow--card:      0 10px 60px -20px rgba(#000,.75);
+
+$row-width:             1220px;
+$article-width:         840px;
+$mobile-width:          768px;
+$mobile-width-max:      767px;
+
+$mobile-nav-width:      $mobile-width;
+$mobile-nav-width-max:  $mobile-width-max;

@@ -1,0 +1,5 @@
+form(action="<?=the_field('mailchimp_form_action', 'option') ?>" id="mc-embedded-subscribe-form" method="post" name="mc-embedded-subscribe-form" novalidate="" target="_blank")
+  input#mce-EMAIL.inpt.inpt--dark(name="EMAIL" type="email" value="" placeholder="Enter your email")
+  div(aria-hidden="true" style="position: absolute; left: -5000px;")
+    input(name="<?=the_field('mailchimp_honeypot_name', 'option') ?>" tabindex="-1" type="text" value="")
+  input#mc-embedded-subscribe.inpt.inpt--plain(name="subscribe" type="submit" value="&gt;")

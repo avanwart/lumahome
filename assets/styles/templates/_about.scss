@@ -1,0 +1,141 @@
+.founders {
+  background-color: $c-white--off;
+  padding: ($column-gutter*2);
+  &__container {
+    lost-center: $row-width;
+  }
+  &__founder {
+    margin-bottom: $column-gutter;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .founders {
+    padding-top: ($column-gutter*4);
+    padding-bottom: ($column-gutter*4);
+    &__founder {
+      lost-column: 1/2 2 ($column-gutter*4);
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .founders {
+    padding-top: ($column-gutter*6);
+    padding-bottom: ($column-gutter*6);
+    &__founder {
+      lost-column: 1/2 2 ($column-gutter*9);
+    }
+  }
+}
+
+.founder {
+  box-shadow: $box-shadow--card;
+  &__image {
+    height: 0;
+    padding-bottom: 66.6%;
+    background-position: center center;
+    background-size: cover;
+  }
+  &__copy {
+    background-color: #fff;
+    padding: $column-gutter;
+    text-align: center;
+    h3 {
+      margin: 0;
+      line-height: 1.75;
+      strong {
+        font-weight: 600;
+      }
+      span {
+        display: block;
+        font-weight: 400;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .founder {
+    &__copy {
+      padding: ($column-gutter*2) $column-gutter;
+      h3 {
+        font-size: 1.375rem;
+      }
+    }
+  }
+}
+
+.investors {
+  padding: ($column-gutter*2);
+  text-align: center;
+  &__title {
+    margin: 0 0 ($column-gutter);
+    font-weight: 300;
+  }
+  &__list {
+    lost-utility: clearfix;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    li {
+      margin-bottom: $column-gutter;
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .investors {
+    padding-top: ($column-gutter*4);
+    padding-bottom: ($column-gutter*4);
+    &__title {
+      font-size: 2.25rem;
+      margin-bottom: ($column-gutter*4);
+    }
+    &__list {
+      &--top {
+        li {
+          lost-column: 1/3 3;
+        }
+      }
+      &--below {
+        li {
+          lost-column: 1/4 4;
+          &:nth-last-of-type(-n+4) {
+            margin-bottom: 0;
+          }
+        }
+      }
+      li {
+        margin-bottom: ($column-gutter*2);
+      }
+      a {
+        transition: opacity 150ms ease-out;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .investors {
+    padding-top: ($column-gutter*8);
+    padding-bottom: ($column-gutter*8);
+    &__title {
+      margin-bottom: ($column-gutter*4);
+    }
+    &__list {
+      li {
+        margin-bottom: ($column-gutter*4);
+      }
+    }
+  }
+}

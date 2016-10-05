@@ -1,0 +1,19 @@
+header.header.header--left.header--shadow-bg.header--shadow-left.header--light(class="<?=the_field('mobile_background_position') ?>" style="background-image:url(<?=the_post_thumbnail_url(); ?>);")
+  .header__container
+    - if ( get_field('header_headline') ):
+      h1.header__title <?= the_field('header_headline'); ?>
+    - endif;
+    - if ( get_field('header_description') ):
+      p.header__description <?= the_field('header_description'); ?>
+    - endif;
+    ul.header__ctas
+      - if ( get_field('app_store_link') ):
+        li: a(href="<?=the_field('app_store_link'); ?>" target="_blank")
+          include ../images/svg/button-app-store.svg
+      - endif;
+      - if ( get_field('google_play_link_copy') ):
+        li: a(href="<?=the_field('google_play_link_copy'); ?>" target="_blank")
+          include ../images/svg/button-google-play.svg
+      - endif;
+
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

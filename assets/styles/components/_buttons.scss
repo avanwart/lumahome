@@ -1,0 +1,90 @@
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  transition: all 150ms ease-out;
+  -webkit-appearance: none;
+  outline: 0;
+  &--arrow {
+    font-weight: 600;
+    color: $c-brand-primary;
+    &:after {
+      content: "";
+      display: inline-block;
+      height: .4rem;
+      width: .4rem;
+      margin-left: ($column-gutter/4);
+      border-left: 2px solid $c-brand-primary;
+      border-bottom: 2px solid $c-brand-primary;
+      transform: rotate(-135deg) translateY(33%);
+      transition: border 150ms ease-out;
+    }
+    &:hover {
+      color: darken($c-brand-primary, 10%);
+      &:after {
+        border-color: darken($c-brand-primary, 10%);
+      }
+    }
+    &-white {
+      color: #fff;
+      &:after {
+        border-color: #fff;
+      }
+      &:hover {
+        color: darken(#fff, 10%);
+        &:after {
+          border-color: darken(#fff, 10%);
+        }
+      }
+    }
+  }
+  &--plain {
+    color: $c-nav-link;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: ($column-gutter/2);
+    &:hover {
+      color: darken($c-nav-link, 10%);
+    }
+  }
+  &--filled {
+    border: 2px solid $c-brand-primary;
+    background-color: $c-brand-primary;
+    color: #fff;
+    border-radius: $border-radius--btn;
+    padding: ($column-gutter/2) $column-gutter;
+    &:hover {
+      background-color: lighten($c-brand-primary, 5%);
+      color: #fff;
+    }
+    &:active {
+      background-color: darken($c-brand-primary, 5%);
+    }
+  }
+  &--outline {
+    border: 1px solid $c-brand-primary;
+    background-color: transparent;
+    color: $c-brand-primary;
+    border-radius: $border-radius--btn;
+    padding: ($column-gutter/2) $column-gutter;
+    &:hover {
+      background-color: $c-brand-primary;
+      color: #fff;
+    }
+    &:active {
+      background-color: darken($c-brand-primary, 5%);
+    }
+  }
+  &--dark {
+    color: #fff;
+    padding: ($column-gutter/2) $column-gutter;
+    border-radius: $border-radius--btn;
+    border: 2px solid #fff;
+    background-color: rgba(#000,.25);
+    &:hover {
+      background-color: rgba(#000,.35);
+    }
+    &:active {
+      background-color: rgba(#000,.45);
+    }
+  }
+}

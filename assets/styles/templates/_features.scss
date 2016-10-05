@@ -1,0 +1,408 @@
+.nav-subsection {
+  display: block;
+  position: relative;
+  z-index: 1000 !important;
+  background-color: #fff;
+  border: 1px solid transparent;
+  transition: border 150ms ease-out;
+  &__container {
+    lost-center: $row-width;
+  }
+  &__list {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: .875rem;
+    li {
+      display: inline-block;
+    }
+    a {
+      display: block;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $c-gray;
+      text-decoration: none;
+      padding: $column-gutter;
+    }
+  }
+  &.is-stuck {
+    border-color: $c-gray--lighter;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .nav-subsection {
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      width: $mobile-width;
+      padding: $column-gutter 0;
+      font-size: 1rem;
+      a {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.speed {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  min-height: 360px;
+  background-color: $c-white--off;
+  background-size: cover;
+  background-position: top center;
+  padding: 0 ($column-gutter*2) ($column-gutter*4);
+  color: #fff;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(#000,.35), rgba(#000,0));
+  }
+
+  &__container {
+    position: relative;
+    z-index: 210;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .speed {
+    height: calc(100vh - 200px);
+    min-height: 420px;
+  }
+}
+
+.security {
+  position: relative;
+  padding: ($column-gutter*2);
+  &__container {
+    lost-center: $row-width;
+  }
+  &__columns {
+    margin-top: ($column-gutter*2);
+    text-align: center;
+  }
+  &__column {
+    margin-bottom: ($column-gutter*2);
+    h4 {
+      text-transform: uppercase;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-width-max) {
+  .security {
+    &__column br {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .security {
+    padding-top: ($column-gutter*4);
+    padding-bottom: ($column-gutter*8);
+    &__columns {
+      lost-utility: clearfix;
+      font-size: 1.375rem;
+      margin-top: ($column-gutter*6);
+    }
+    &__column {
+      lost-column: 1/2 2 ($column-gutter*2);
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  .security {
+    &__column {
+      lost-column: 1/2 2 ($column-gutter*5);
+    }
+  }
+}
+
+$screenWidth: 200px;
+$phoneOffsetWidth: 32px;
+$phoneOffsetHeight: 118px;
+
+.control {
+  position: relative;
+  padding: ($column-gutter*2) ($column-gutter*2) 0;
+  background-color: $c-gray;
+  &__container {
+    lost-center: $row-width;
+  }
+  &__copy {
+    color: #fff;
+    h2 {
+      @extend .headline__title;
+    }
+    p {
+      @extend .headline__description;
+      margin-bottom: $column-gutter;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__screenshots {
+    position: relative;
+    width: $screenWidth;
+    margin: ($column-gutter*4) auto 0;
+    img {
+      position: relative;
+      z-index: 620;
+      width: $screenWidth;
+      height: auto;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 630;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 2px 0 rgba(#000,0.5);
+      pointer-events: none;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: calc(-#{$phoneOffsetHeight}/2);
+      left: calc(-#{$phoneOffsetWidth}/2);
+      width: calc(100% + #{$phoneOffsetWidth});
+      height: calc(100% + #{$phoneOffsetHeight});
+      z-index: 610;
+      background-image: url("../../dist/images/ui-iphone.png");
+      background-size: cover;
+    }
+  }
+  &__nav {
+    position: absolute;
+    top: 14rem;
+    z-index: 640;
+    padding: ($column-gutter/2);
+    background-color: $c-brand-primary;
+    &:hover {
+      background-color: lighten($c-brand-primary, 5%);
+    }
+    &:active {
+      background-color: darken($c-brand-primary, 5%);
+    }
+    &__image {
+      width: 14px;
+      height: 26px;
+      background-image: url("../../dist/images/svg/icon-arrow.svg");
+      .control__nav--next & {
+        transform: rotate(180deg);
+      }
+    }
+    &--prev {
+      left: 0;
+      padding-left: ($column-gutter/4);
+    }
+    &--next {
+      right: 0;
+      padding-right: ($column-gutter/4);
+    }
+  }
+
+  // Preventing wonkiness prior to sliders loading
+  .control__backgrounds,
+  .control-slider__image {
+    transition: opacity 500ms ease-out;
+    opacity: 1;
+  }
+  &.is-not-loaded {
+    position: relative;
+    min-height: 420px;
+    max-height: 570px;
+    &:after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 25px);
+      left: calc(50% - 25px);
+      height: 50px;
+      width: 50px;
+      border: 5px solid rgba(#000,.2);
+      border-top-color: $c-brand-primary;
+      border-radius: 50%;
+      animation: spin 1s ease-out infinite;
+    }
+    .control__backgrounds,
+    .control-slider__image {
+      opacity: 0;
+    }
+    .control__copy {
+      max-height: 1px;
+      overflow: hidden;
+      padding: 0;
+    }
+    .control-slider__image:not(:first-of-type),
+    .control__screenshots:before {
+      display: none;
+    }
+  }
+}
+
+.control-slider {
+  .slick-list {
+    z-index: 620;
+  }
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
+  .slick-slide {
+    outline: none;
+  }
+  &--screenshot {
+    width: $screenWidth;
+  }
+  &.control-slider--screenshot {
+    &:after {
+      opacity: 0;
+    }
+    &.slick-initialized:after {
+      opacity: 1;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-width-max) {
+  .control {
+    background-image: initial !important;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  $screenWidth: 200px;
+  $phoneOffsetWidth: 32px;
+  $phoneOffsetHeight: 118px;
+  .control {
+    padding-top: 0;
+    padding-bottom: 0;
+    &__container {
+      display: flex;
+      align-items: center;
+    }
+    &__backgrounds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 600;
+    }
+    &__background {
+      position: absolute;
+      top: 0;
+      width: calc(50% - 110px);
+      height: 100%;
+      background-size: cover;
+      &--01 {
+        left: 0;
+        background-position: left center;
+      }
+      &--02 {
+        right: 0;
+        background-position: center center;
+      }
+    }
+    &__copy {
+      width: calc((100% - #{$screenWidth})/2);
+      padding: $column-gutter 0;
+      padding-right: ($column-gutter*2);
+    }
+    &__screenshots {
+      margin: 0;
+      width: auto;
+    }
+    &__nav {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .control-slider {
+    &--screenshot {
+      width: $screenWidth;
+    }
+  }
+}
+
+@media screen and (min-width: $row-width) {
+  $screenWidth: 320px;
+  $phoneOffsetWidth: 48px;
+  $phoneOffsetHeight: 180px;
+  .control {
+    &__background {
+      width: calc(50% - 180px);
+    }
+    &__copy {
+      width: calc((100% - #{$screenWidth})/2);
+      padding-right: ($column-gutter*3);
+    }
+    &__screenshots {
+      img {
+        width: $screenWidth;
+      }
+      &:after {
+        top: calc(-#{$phoneOffsetHeight}/2);
+        left: calc(-#{$phoneOffsetWidth}/2);
+        width: calc(100% + #{$phoneOffsetWidth});
+        height: calc(100% + #{$phoneOffsetHeight});
+      }
+    }
+    &__nav {
+      padding: ($column-gutter/2) ($column-gutter*.75);
+      &--prev {
+        padding-left: ($column-gutter/2);
+      }
+      &--next {
+        padding-right: ($column-gutter/2);
+      }
+    }
+  }
+
+  .control-slider {
+    &--screenshot {
+      width: $screenWidth;
+    }
+  }
+}
+
+#anchor {
+  &--speed,
+  &--security,
+  &--control {
+    position: absolute;
+    top: -3.6875rem;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  #anchor {
+    &--control {
+      position: absolute;
+      top: -10rem;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.default {
+  padding: ($column-gutter*2);
+  &__container {
+    lost-center: $row-width;
+  }
+}

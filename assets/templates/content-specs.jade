@@ -1,0 +1,59 @@
+header.header.header--left.header--light(class="<?=the_field('mobile_background_position') ?>" style="background-image:url(<?=the_post_thumbnail_url(); ?>);")
+  .header__container
+    - if ( get_field('header_headline') ):
+      h1.header__title <?= the_field('header_headline'); ?>
+    - endif;
+    - if ( get_field('header_tagline') ):
+      h2.header__tagline <?= the_field('header_tagline'); ?>
+    - endif;
+
+- if ( have_rows('core_features') ):
+section.core-features
+  .core-features__container
+    h2.core-features__title Core Features
+    .core-features__features.feature-list
+      - while( have_rows('core_features') ): the_row();
+        - $featureTitle = get_sub_field('feature_title');
+        - $featureIcon = get_sub_field('feature_icon');
+        - $featureDescription = get_sub_field('feature_description');
+        .feature-list__item
+          .feature-list__image
+            img(src="<?= $featureIcon; ?>")
+          .feature-list__copy
+            h3 <?= $featureTitle; ?>
+            p <?= $featureDescription; ?>
+      - endwhile;
+- endif;
+
+- if ( have_rows('diagrams') ):
+  section.diagrams
+    .diagrams__container
+      - while( have_rows('diagrams') ): the_row();
+        - $diagramTitle = get_sub_field('diagram_title');
+        - $diagramImage = get_sub_field('diagram_image');
+        .diagrams__diagram.diagram
+          h2.diagram__title <?= $diagramTitle; ?>
+          img.diagram__image(src="<?= $diagramImage; ?>")
+      - endwhile;
+- endif;
+
+- if ( have_rows('spec_list') ):
+section.tech-specs
+  .tech-specs__container
+    h2.tech-specs__title Tech Specs
+    .tech-specs__lists
+      - while( have_rows('spec_list') ): the_row();
+        - $listTitle = get_sub_field('list_title');
+        .tech-specs__list.spec-list
+          h4.spec-list__title <?= $listTitle; ?>
+          - if ( have_rows('list_items') ):
+            ul.spec-list__list
+              - while( have_rows('list_items') ): the_row();
+                - $listItem = get_sub_field('list_item');
+                li <?= $listItem; ?>
+              - endwhile;
+          - endif;
+      - endwhile;
+- endif;
+
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

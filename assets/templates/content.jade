@@ -1,0 +1,9 @@
+| <article <?php post_class(); ?>>
+header
+  h2.entry-title
+    a(href="<?php the_permalink(); ?>")
+      - the_title();
+  - get_template_part('templates/entry-meta');
+.entry-summary
+  - the_excerpt();
+| </article>

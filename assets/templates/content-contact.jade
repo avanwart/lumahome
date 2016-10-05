@@ -1,0 +1,22 @@
+//- header.header--page
+section.contact-columns
+  .contact-columns__container
+    aside.contact-columns__aside
+      dl.definition-list
+        .definition-list__item
+          dt.definition-list__title phone:
+          dd.definition-list__description 1-800-684-LUMA
+        .definition-list__item
+          dt.definition-list__title media:
+          dd.definition-list__description media@getluma.com
+        .definition-list__item
+          dt.definition-list__title sales:
+          dd.definition-list__description sales@getluma.com
+        .definition-list__item
+          dt.definition-list__title general:
+          dd.definition-list__description general@getluma.com
+      p 75 5th Street NW <br>Atlanta, GA 30308
+    main.contact-columns__main
+      - the_content();
+
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

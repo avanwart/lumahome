@@ -1,0 +1,50 @@
+header.header.header--short.header--light.header--center-center(class="<?=the_field('mobile_background_position') ?>" style="background-image:url(<?=the_post_thumbnail_url(); ?>);")
+  .header__container
+    - if ( get_field('header_headline') ):
+      h1.header__title <?= the_field('header_headline'); ?>
+    - endif;
+
+
+- if ( have_rows('featured_articles') ):
+  section.press-examples.press-examples--primary
+    .press-examples__container
+      - while( have_rows('featured_articles') ): the_row();
+        - $logoURL = get_sub_field('article_logo');
+        - $articleURL = get_sub_field('article_url');
+        - $articleExcerpt = get_sub_field('article_excerpt');
+        a.press-examples__block.press-quote(href="<?= $articleURL; ?>" target="_blank" data-match-height="press-blocks")
+          .press-quote__image
+            img(src="<?= $logoURL; ?>")
+          p.press-quote__excerpt <?= $articleExcerpt; ?>
+      - endwhile;
+- endif;
+
+- if ( have_rows('articles') ):
+  section.press-examples.press-examples--secondary
+    .press-examples__container
+      - while( have_rows('articles') ): the_row();
+        - $logoURL = get_sub_field('article_logo');
+        - $articleURL = get_sub_field('article_url');
+        a.press-examples__block.press-logo(href="<?= $articleURL; ?>" target="_blank")
+          .press-quote__image
+            img(src="<?= $logoURL; ?>")
+      - endwhile;
+- endif;
+
+section.press-kit
+  .press-kit__container
+    - if ( get_field('presskit_image') ):
+      img.press-kit__image(src="<?=the_field('presskit_image'); ?>")
+    - endif;
+    .press-kit__copy
+      - if ( get_field('presskit_headline') ):
+        h2 <?=the_field('presskit_headline'); ?>
+      - endif;
+      - if ( get_field('presskit_tagline') ):
+        p <?=the_field('presskit_tagline'); ?>
+      - endif;
+      - if ( get_field('presskit_url') ):
+        a.btn.btn--outline(href="<?=the_field('presskit_url'); ?>" target="_blank") Download Press Kit
+      - endif;
+
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

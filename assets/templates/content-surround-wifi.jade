@@ -1,0 +1,77 @@
+header.header.header--center(class="<?=the_field('mobile_background_position') ?>" style="background-image:url(<?=the_post_thumbnail_url(); ?>);")
+  .header__container
+    - if ( get_field('header_headline') ):
+      h1.header__title <?= the_field('header_headline'); ?>
+    - endif;
+    - if ( get_field('header_tagline') ):
+      h2.header__tagline <?= the_field('header_tagline'); ?>
+    - endif;
+
+section.product-overlap.product-overlap--trio
+  img.product-overlap__image(src="<?php bloginfo('template_url'); ?>/dist/images/product-luma-left.png")
+  img.product-overlap__image(src="<?php bloginfo('template_url'); ?>/dist/images/product-luma.png")
+  img.product-overlap__image(src="<?php bloginfo('template_url'); ?>/dist/images/product-luma-right.png")
+
+section.your-home
+  .your-home__container
+    .headline
+      - if ( get_field('section1_headline') ):
+        h2.headline__title <?= the_field('section1_headline'); ?>
+      - endif;
+      - if ( get_field('section1_tagline') ):
+        p.headline__description <?= the_field('section1_tagline'); ?>
+      - endif;
+    include ../images/svg/graphic-clouds.svg
+    .home-models
+      .home-models__model.home-models__model--01
+        include ../images/svg/graphic-home-model-1.svg
+      .home-models__model.home-models__model--02
+        include ../images/svg/graphic-home-model-2.svg
+
+section.feature-screenshots
+  .feature-screenshots__container
+    .headline.headline--narrow.headline--white
+      - if ( get_field('section2_headline') ):
+        h2.headline__title <?= the_field('section2_headline'); ?>
+      - endif;
+      - if ( get_field('section2_tagline') ):
+        p.headline__description <?= the_field('section2_tagline'); ?>
+      - endif;
+
+    - if ( have_rows('screenshots') ):
+      .feature-screenshots__features
+        - while( have_rows('screenshots') ): the_row();
+          - $title = get_sub_field('title');
+          - $description = get_sub_field('description');
+          - $iconURL = get_sub_field('icon');
+          - $screenshotURL = get_sub_field('screenshot');
+          .screenshot-block
+            .screenshot-block__image
+              .screenshot-block__screenshot(style="background-image: url(<?= $screenshotURL ?>);")
+            img.screenshot-block__icon(src="<?= $iconURL ?>")
+            h3.screenshot-block__title <?= $title ?>
+            p.screenshot-block__description <?= $description ?>
+        - endwhile;
+    - endif;
+
+section.devices-love-luma
+  .devices-love-luma__container
+    .headline
+      - if ( get_field('section3_headline') ):
+        h2.headline__title <?= the_field('section3_headline'); ?>
+      - endif;
+      - if ( get_field('section3_tagline') ):
+        p.headline__description <?= the_field('section3_tagline'); ?>
+      - endif;
+    img.devices-love-luma__image(src="<?php bloginfo('template_url'); ?>/dist/images/product-luma.png")
+    .devices-love-luma__devices
+      img(src="<?php bloginfo('template_url'); ?>/dist/images/svg/graphic-devices.svg")
+      img(src="<?php bloginfo('template_url'); ?>/dist/images/svg/graphic-devices.svg")
+
+- if ( get_field('image_block') ):
+  section.photo-block
+    .photo-block__container
+      img.photo-block__photo(src="<?php the_field('image_block'); ?>")
+- endif;
+
+- wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']);

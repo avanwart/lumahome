@@ -1,0 +1,23 @@
+.inpt {
+  padding: ($column-gutter/2) $column-gutter;
+  outline: 0;
+  transition: all 150ms ease-out;
+  border: 1px solid $c-gray--light;
+  -webkit-appearance: none;
+  &:active,
+  &:focus {
+    border: 1px solid $c-brand-primary;
+    box-shadow: 0px 0px 10px 0px rgba($c-brand-primary, 0.25);
+  }
+  &--dark {
+    background-color: $c-gray;
+    border: 0;
+    color: #fff;
+    border: 0;
+    &:active,
+    &:focus {
+      border: 0;
+      box-shadow: 0px 0px 10px 0px rgba(#000, 0.5);
+    }
+  }
+}

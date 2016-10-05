@@ -1,0 +1,23 @@
+.article {
+  padding: ($column-gutter*2);
+  &__container {
+    lost-center: $article-width;
+  }
+  h1,h2,h3,h4,h5,h6,p {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .article {
+    padding-top: ($column-gutter*4);
+    padding-bottom: ($column-gutter*4);
+    font-size: 137.5%;
+  }
+}
+

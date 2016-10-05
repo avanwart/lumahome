@@ -1,0 +1,16 @@
+section.order-luma
+  .order-luma__container
+    .headline
+      - if ( get_field('purchase_headline', 'option') ):
+        h2.headline__title <?php the_field('purchase_headline', 'option'); ?>
+      - endif;
+      - if ( get_field('purchase_tagline', 'option') ):
+        p.headline__description <?php the_field('purchase_tagline', 'option'); ?>
+      - endif;
+    img.order-luma__image(src="<?php bloginfo('template_url'); ?>/dist/images/product-luma-trio.png")
+    - if ( get_field('purchase_description', 'option') ):
+      h3.order-luma__tagline <?php the_field('purchase_description', 'option'); ?>
+    - endif;
+    - if ( get_field('purchase_amazon_link', 'option') ):
+      a.order-luma__link.btn.btn--filled.btn--filled-orange(href="<?php the_field('purchase_amazon_link', 'option'); ?>" target="_blank") BUY NOW
+    - endif;

@@ -1,0 +1,42 @@
+.page-header {
+  padding: ($column-gutter*2) ($column-gutter*2) 0;
+  line-height: 1;
+  text-align: center;
+  &__container {
+    lost-center: $row-width;
+  }
+  &__title {
+    font-weight: 300;
+    margin: 0;
+  }
+  .home & {
+    padding: 0;
+  }
+  .contact & {
+    text-align: left;
+  }
+  .error404 & {
+    padding: $column-gutter;
+    margin: 0 auto;
+    background-color: $c-brand-primary;
+    color: #fff;
+  }
+}
+
+@media screen and (min-width: $mobile-width) {
+  .page-header {
+    &__title {
+      font-size: 2.5rem;
+    }
+    .error404 & {
+      display: flex;
+      align-items: center;
+      margin-top: ($column-gutter*4);
+      width: 240px;
+      height: 240px;
+      &__title {
+        font-size: 5rem;
+      }
+    }
+  }
+}

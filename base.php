@@ -30,6 +30,19 @@ use Roots\Sage\Wrapper;
       wp_footer();
     ?>
 
+    <script type="text/javascript">
+
+      var $buoop = {vs:{i:9,f:25,o:12.1,s:7},c:2};
+      function $buo_f(){
+       var e = document.createElement("script");
+       e.src = "//browser-update.org/update.min.js";
+       document.body.appendChild(e);
+      };
+      try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+      catch(e){window.attachEvent("onload", $buo_f)}
+      
+    </script>
+
 <script>
 
 jQuery(document).ready(jQuery("#menu-item-56 > a").click(function(){var e=(new Date).getTime()/1e3,a=parseInt(e/3600)%24;a-=4;var n=parseInt(e/60)%60,t=e%60;t=Math.round(100*t)/100;var r=(10>a?"0"+a:a)+"-"+(10>n?"0"+n:n)+"-"+(10>t?"0"+t:t);ga("send","event","purchase button top","click",r,399)}))

@@ -6,19 +6,9 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300" rel="stylesheet" type="text/css"/>
   <?php wp_head(); ?>
   <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/assets/styles/css/child.css">
-
-  <!-- start analytics -->
-	<script type="text/javascript">
-
-	      var $buoop = {vs:{i:9,f:25,o:12.1,s:7},c:2};
-	      function $buo_f(){
-	       var e = document.createElement("script");
-	       e.src = "//browser-update.org/update.min.js";
-	       document.body.appendChild(e);
-	      };
-	      try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-	      catch(e){window.attachEvent("onload", $buo_f)}
-	</script>
+  <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/assets/styles/custom-css.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+  <script src="<?php bloginfo('template_directory'); ?>/assets/scripts/custom-js.js"></script>
 	    
 	<!-- Begin Google Analytics -->
 	<script>
@@ -49,7 +39,7 @@
 	      a.appendChild(r);
 	  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 	</script>
-	
+
   <!-- Facebook Pixel Code -->
 	<script>
 	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?

@@ -1,5 +1,5 @@
 
-<header style="background-image:url(<?=the_post_thumbnail_url(); ?>);" class="header header--left header--light <?=the_field('mobile_background_position') ?>">
+<header class="header header--left header--light">
 	<div class="header__container">
 		<?php if ( get_field('header_headline') ): ?>
 		<div class="header__copy">
@@ -17,13 +17,14 @@
 	</div>
 </header>
 <section class="logos">
-	<img src="<?php bloginfo('template_directory'); ?>/assets/images/logo-bar.jpg" alt="">
+	<img class="hidden-xs" src="<?php bloginfo('template_directory'); ?>/assets/images/logo-bar.jpg" alt="">
+	<img class="visible-xs" src="<?php bloginfo('template_directory'); ?>/assets/images/mobile-logo-bar.jpg" alt="">
 </section>
 <section class="how" id="how">
 	<div class="meet-luma__container">
 		<div class="headline">
-			<h2 class="headline__title">Say Goodbye to WiFi Dead Zones</h2>
-			<h3>Luma is the world’s fastest and most reliable home WiFi system - that only takes minutes to set up. Just three little Lumas will work together to blanket your home with stable, super-fast WiFi in every room.</h3>
+			<h2 class="headline__title">Say Goodbye to <br class="visible-xs"/>WiFi Dead Zones</h2>
+			<h3 class="hidden-xs">Luma is the world’s fastest and most reliable home WiFi system - that only takes minutes to set up. Just three little Lumas will work together to blanket your home with stable, super-fast WiFi in every room.</h3>
 		</div>
 		<ul class="comparison">
 			<li>
@@ -35,6 +36,7 @@
 				<img src="<?php bloginfo('template_directory'); ?>/assets/images/luma-routers.jpg" alt="">
 			</li>
 		</ul>
+	</div>
 </section>
 <div class="app" id="features">
 	<div class="headline">
@@ -73,6 +75,25 @@
 	</section>
 	<script>
 		jQuery(document).ready(function($){
+
+			// Find out what browser they're using
+			var userAgent = window.navigator.userAgent;
+
+			// iPad or iPhone specific code
+			if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+
+			
+				// Collapse mobile nav if link is clicked
+				$('.top-bar .nav-primary a').click(function(){
+					$('.top-bar').removeClass('is-open');
+					
+				});
+			}
+			// Use below if not iPad or iPhone
+			else {
+				
+			}
+
 			$('.control-slider--screenshot').slick({
 				dots: false,
 				arrows: true,

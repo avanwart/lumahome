@@ -1,10 +1,16 @@
 body
 	-webkit-font-smoothing: antialiased
 
+.visible-xs
+	display: none!important
+.hidden-xs
+	display: block!important
+
 .page-template-template-home-new
 	.header
 		height: calc(82.5vh)
 		min-height: 420px
+		background-image: url('../../images/new-hero-bg.jpg')
 		.header__title
 			font-size: 47px
 			font-weight: normal
@@ -194,37 +200,110 @@ body
 
 
 @media screen and (max-width: 767px)
-	.order-luma
-		padding: 50px 0
-		background: #efefef
-		background-image: none
-		&:before
-			background: none
-			display: none
-		&:after
-			display: none
-		.luma-box
-			float: none
-			width: 100%
-			padding-bottom: 30px
-			img
-				max-width: 120%
-				margin: 0 0 0 -10%
-				&.three-lumas
-					max-width: 100%
-					margin: 60px 0 0
-			h3
-				font-size: 1.5rem
-	.testimonials
-		background-position: 40% 50%
-		padding: 50px 0
-		min-height: 500px
-		blockquote
-			width: 100%
+	.visible-xs
+		display: block!important
+	.hidden-xs
+		display: none!important
+	.page-template-template-home-new
+		h2
+			line-height: 1.4
+		.header
+			background-image: url('../../images/mobile-hero-bg.jpg')
 			padding: 0 15px
-			font-size: 15px
-			margin: 0 0 30px
-			&:last-child
-				margin-bottom: 0
-			small
+			&:after
+				background: none
+			.header__container
+				height: 100%
+			.header__title
+				display: block
+				width: 100%
+				font-size: 1.75rem
+				margin-top: 30px
+			.header__ctas
+				overflow: auto
+				width: 100%
+				li
+					display: inline-block
+					vertical-align: middle
+					.btn
+						width: auto
+						padding: 12px 24px
+						text-transform: capitalize
+						font-size: 14px
+						margin: 0 10px 0 0
+					&:last-child
+						.btn
+							margin-right: 0
+		.logos
+			img
+				width: 100%
+				height: auto
+		.how
+			padding: 30px 0
+			.headline__title
+				font-size: 28px
+				margin-bottom: 30px
+			ul.comparison
+				width: 100%
+				display: block
+				padding: 0
+				margin: 0 0 30px
+				li
+					float: none
+					display: block
+					width: 100%
+					margin: 0
+					p
+						font-size: 16px
+						margin-bottom: 10px
+					img
+						width: 70%
+						height: auto
+						margin-left: -15px
+		.order-luma
+			padding: 50px 0
+			background: #efefef
+			background-image: none
+			&:before
+				background: none
+				display: none
+			&:after
+				display: none
+			.luma-box
+				float: none
+				width: 100%
+				padding-bottom: 30px
+				img
+					max-width: 120%
+					margin: 0 0 0 -10%
+					&.three-lumas
+						max-width: 100%
+						margin: 60px 0 0
+				h3
+					font-size: 1.5rem
+		.testimonials
+			background-position: 40% 50%
+			padding: 50px 0
+			min-height: 500px
+			blockquote
+				width: 100%
+				padding: 0 15px
 				font-size: 15px
+				margin: 0 0 30px
+				&:last-child
+					margin-bottom: 0
+				small
+					font-size: 15px
+		.app
+			padding-top: 0
+			.control__copy h2
+				text-align: center
+			.control__screenshots img
+			.control
+				margin: 0
+			.headline
+				display: none
+
+		.order-luma
+			.order-luma__container
+				padding-top: 50px

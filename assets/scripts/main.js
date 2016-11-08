@@ -54,7 +54,7 @@
         });
 
         $('.js-youtube-popup').magnificPopup({
-          disableOn: 700,
+          // disableOn: 700,
           type: 'iframe',
           mainClass: 'is-active',
           removalDelay: 160,
